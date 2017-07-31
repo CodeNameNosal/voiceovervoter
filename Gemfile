@@ -41,7 +41,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl'
   gem 'valid_attribute'
-  gem 'shoulda-matchers', require: false
+  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
   gem 'dotenv-rails'
 end
 

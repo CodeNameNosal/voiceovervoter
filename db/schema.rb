@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170731191107) do
+ActiveRecord::Schema.define(version: 20170731194224) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(version: 20170731191107) do
     t.string "author", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "matches", force: :cascade do |t|
+    t.bigint "book_id", null: false
+    t.bigint "voice_id", null: false
+    t.string "comment", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_matches_on_book_id"
+    t.index ["voice_id"], name: "index_matches_on_voice_id"
   end
 
   create_table "voices", force: :cascade do |t|
