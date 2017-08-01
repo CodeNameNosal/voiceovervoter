@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom'
 const BookTile = ({ book }) => {
   return (
     <div>
-      <p className='BookTile-title'>{book.title}</p>
-      <p className='BookTile-author'>{book.author}</p>
+      <Link to={`books/${book.id}`}>
+        <p className='BookTile-title'>"{book.title}"</p>
+      </Link>
+      <p className='BookTile-author'>by {book.author}</p>
     </div>
   )
 }
