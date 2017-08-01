@@ -20,9 +20,9 @@ describe('BookTile', () => {
   });
 
   it("should render the book's title", () => {
-    expect(wrapper.find('.BookTile-title').text()).toEqual('Cooking for Beginners')
+    expect(wrapper.find('.BookTile-title').text()).toEqual('"Cooking for Beginners"')
   })
   it("should render the book's author", () => {
-    expect(wrapper.find('.BookTile-author').text()).toEqual('Chef Yum')
+    expect(wrapper.find('.BookTile-author').text()).toEqual('by Chef Yum')
   })
 });
