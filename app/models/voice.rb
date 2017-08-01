@@ -1,6 +1,5 @@
 class Voice < ApplicationRecord
-  # has_many :matches
-  has_many :matches, :inverse_of => :voice
+  has_many :matches, inverse_of: :voice
   has_many :books, through: :matches
 
   validates :talentid, presence: true
