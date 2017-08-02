@@ -10,6 +10,7 @@ const App = ({ }) => {
         <Switch>
           <Route exact path='/' component={BooksIndexContainer} />
           <Route exact path='/books' component={BooksIndexContainer} />
+          <Route exact path='/books/new' />
           <Route exact path='/books/:id' component={BookShowPage} />
         </Switch>
       </div>

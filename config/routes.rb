@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   root to: "examples#index"
+
+  resources :books, :only => [:new, :create]
+
   get '/books/:id', to: "examples#index"
 
   namespace :api do
