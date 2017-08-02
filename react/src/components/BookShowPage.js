@@ -54,12 +54,10 @@ class BookShowPage extends Component {
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
 
-
   handleClick(event) {
     fetch(`/api/v1/voicebunnies/randomVoice`)
     .then(response => response.json())
     .then(body => {
-      // debugger
       this.setState({
         randomVoice: {
           url: body.randomVoice.url,
@@ -78,10 +76,11 @@ class BookShowPage extends Component {
     if (this.state.randomVoice.url === undefined) {
       displayMe = <h6>no random voice</h6>
     } else {
-      displayMe = <MatchForm
-        data={this.state.randomVoice}
-        book_id={this.props.match.params.id}
-                  />
+      displayMe =
+        <MatchForm
+          data={this.state.randomVoice}
+          book_id={this.props.match.params.id}
+        />
     }
 
     let mappedMatches = this.state.relevantMatches.map(match => {
