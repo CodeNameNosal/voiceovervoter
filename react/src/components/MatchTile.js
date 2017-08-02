@@ -3,7 +3,7 @@ import React from 'react'
 const MatchTile = ({ data }) => {
   return (
     <div className="MatchTile">
-      <p>Talentid: <a href={data.booking}>{data.talentid}</a></p>
+      <p>Narrator: <a href={data.booking}>{data.talentid}</a></p>
 
       <audio controls>
           <source src={data.url} />
