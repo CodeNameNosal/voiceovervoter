@@ -1,6 +1,5 @@
 class Book < ApplicationRecord
-  has_many :matches
-  has_many :voices, through: :matches
+  has_many :matched_voices
 
   validates :title, presence: true
   validates :author, presence: true
