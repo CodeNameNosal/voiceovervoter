@@ -9,7 +9,9 @@ class BookShowPage extends Component {
       book: {},
       relevantMatches: [],
       randomVoice: {
-        url: undefined
+        url: undefined,
+        booking: undefined,
+        talentid: undefined
       }
     }
   this.handleClick = this.handleClick.bind(this)
@@ -57,9 +59,12 @@ class BookShowPage extends Component {
     fetch(`/api/v1/voicebunnies/randomVoice`)
     .then(response => response.json())
     .then(body => {
+      // debugger
       this.setState({
         randomVoice: {
-          url: body.randomVoice.url
+          url: body.randomVoice.url,
+          booking: body.randomVoice.bookingURL,
+          talentid: body.randomVoice.talentID
         }
       })
     })
@@ -73,7 +78,10 @@ class BookShowPage extends Component {
     if (this.state.randomVoice.url === undefined) {
       displayMe = <h6>no random voice</h6>
     } else {
-      displayMe = <MatchForm data={this.state.randomVoice} />
+      displayMe = <MatchForm
+        data={this.state.randomVoice}
+        book_id={this.props.match.params.id}
+                  />
     }
 
     let mappedMatches = this.state.relevantMatches.map(match => {
