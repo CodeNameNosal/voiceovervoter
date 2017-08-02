@@ -34,7 +34,7 @@ class BookShowPage extends Component {
     .catch(error => console.error(`Error in fetch: ${error.message}`))
 
 
-    fetch(`/api/v1/books/${this.props.match.params.id}/matches`)
+    fetch(`/api/v1/books/${this.props.match.params.id}/matched_voices`)
     .then(response => {
       if (response.ok) {
         return response.json()

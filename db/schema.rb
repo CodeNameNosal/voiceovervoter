@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170731194224) do
+ActiveRecord::Schema.define(version: 20170802174756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,22 +22,15 @@ ActiveRecord::Schema.define(version: 20170731194224) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "matches", force: :cascade do |t|
+  create_table "matched_voices", force: :cascade do |t|
     t.bigint "book_id", null: false
-    t.bigint "voice_id", null: false
-    t.string "comment", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_matches_on_book_id"
-    t.index ["voice_id"], name: "index_matches_on_voice_id"
-  end
-
-  create_table "voices", force: :cascade do |t|
     t.string "talentid", null: false
-    t.string "sound", null: false
+    t.string "url", null: false
+    t.string "comment", null: false
     t.string "booking"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_matched_voices_on_book_id"
   end
 
 end
