@@ -1,7 +1,6 @@
 import React from 'react'
 
 const MatchTile = ({ data }) => {
-  // debugger;
   return (
     <div className="MatchTile">
       <p>Talentid: <a href={data.voice.booking}>{data.voice.talentid}</a></p>

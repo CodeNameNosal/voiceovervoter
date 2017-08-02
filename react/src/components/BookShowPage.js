@@ -6,8 +6,12 @@ class BookShowPage extends Component {
     super(props);
     this.state = {
       book: {},
-      relevantMatches: []
+      relevantMatches: [],
+      randomVoice: {
+        url: undefined
+      }
     }
+  this.handleClick = this.handleClick.bind(this)
   }
 
   componentDidMount() {
@@ -45,10 +49,32 @@ class BookShowPage extends Component {
       });
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
-
   }
 
+
+  handleClick(event) {
+    fetch(`/api/v1/voicebunnies/randomVoice`)
+    .then(response => response.json())
+    .then(body => {
+      this.setState({
+        randomVoice: {
+          url: body.randomVoice.url
+        }
+      })
+    })
+    .then()
+  }
+
+
+
   render() {
+    let displayMe
+    if (this.state.randomVoice.url === undefined) {
+      displayMe = <h6>no random voice</h6>
+    } else {
+      displayMe = <h6>{this.state.randomVoice.url}</h6>
+    }
+
     let mappedMatches = this.state.relevantMatches.map(match => {
 
     return(
@@ -63,6 +89,10 @@ class BookShowPage extends Component {
         <p>This is the BookShowPage</p>
         <h1 className='BookShowPage-title'>"{this.state.book.title}"</h1>
         <p className='BookShowPage-author'>by {this.state.book.author}</p>
+        <hr />
+        <button className="button" onClick={this.handleClick}>Generate random voice</button>
+        <hr />
+        {displayMe}
         <hr />
         {mappedMatches}
       </div>
