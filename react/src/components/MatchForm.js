@@ -31,6 +31,7 @@ class MatchForm extends Component{
     } else {
       this.setState({ comment: "Please enter a comment" })
     }
+    window.location.reload();
   }
 
   postMatchedVoice(event) {
@@ -53,12 +54,12 @@ class MatchForm extends Component{
   render() {
     return (
       <div className="MatchForm">
-        <h3>You're listening to {this.props.data.talentid}</h3>
+        <h3>You're listening to Narrator: <a href={this.props.data.booking}>{this.props.data.talentid}</a></h3>
         <audio controls>
           <source src={this.props.data.url} />
           Your user agent does not support the HTML5 Audio element.
         </audio>
-        <p>Input below:</p>
+        <p>Say something about this match?</p>
 
         <form onSubmit={this.handleFormSubmit}>
           <label htmlFor={this.state.comment}>
@@ -69,6 +70,7 @@ class MatchForm extends Component{
             value={this.state.comment}
           />
         </label>
+        <input className='button' type='submit' value='Submit' />
       </form>
 
       </div>

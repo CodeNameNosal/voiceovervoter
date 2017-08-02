@@ -72,11 +72,9 @@ class BookShowPage extends Component {
 
 
   render() {
-    let displayMe
-    if (this.state.randomVoice.url === undefined) {
-      displayMe = <h6>no random voice</h6>
-    } else {
-      displayMe =
+    let displayMatchForm = ""
+    if (this.state.randomVoice.url !== undefined) {
+      displayMatchForm =
         <MatchForm
           data={this.state.randomVoice}
           book_id={this.props.match.params.id}
@@ -94,13 +92,11 @@ class BookShowPage extends Component {
   })
     return(
       <div>
-        <p>This is the BookShowPage</p>
         <h1 className='BookShowPage-title'>"{this.state.book.title}"</h1>
-        <p className='BookShowPage-author'>by {this.state.book.author}</p>
+        <h3 className='BookShowPage-author'>by {this.state.book.author}</h3>
         <hr />
         <button className="button" onClick={this.handleClick}>Generate random voice</button>
-        <hr />
-        {displayMe}
+        {displayMatchForm}
         <hr />
         {mappedMatches}
       </div>

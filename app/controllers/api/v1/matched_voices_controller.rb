@@ -2,7 +2,7 @@ class Api::V1::MatchedVoicesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @relevantMatches = MatchedVoice.where({ book_id: params[:book_id] })
+    @relevantMatches = MatchedVoice.where({ book_id: params[:book_id] }).order(updated_at: :desc)
 
     render json: { relevantMatches: @relevantMatches }
   end
