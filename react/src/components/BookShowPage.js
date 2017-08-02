@@ -1,5 +1,6 @@
 import React, { Component }  from 'react';
 import MatchTile from './MatchTile';
+import MatchForm from './MatchForm';
 
 class BookShowPage extends Component {
   constructor(props) {
@@ -72,7 +73,7 @@ class BookShowPage extends Component {
     if (this.state.randomVoice.url === undefined) {
       displayMe = <h6>no random voice</h6>
     } else {
-      displayMe = <h6>{this.state.randomVoice.url}</h6>
+      displayMe = <MatchForm data={this.state.randomVoice} />
     }
 
     let mappedMatches = this.state.relevantMatches.map(match => {
