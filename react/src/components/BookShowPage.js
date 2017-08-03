@@ -97,13 +97,13 @@ class BookShowPage extends Component {
     )
   })
     return(
-      <div>
+      <div className='BookShowPage'>
         <h1 className='BookShowPage-title'>"{this.state.book.title}"</h1>
         <h3 className='BookShowPage-author'>by {this.state.book.author}</h3>
-        <hr />
-        <button className="button" onClick={this.handleClick}>Generate random voice</button>
+        <br />
+        <button className="panel" onClick={this.handleClick}>Generate random voice</button>
         {displayMatchForm}
-        <hr />
+        <br />
         <div className="row">
         {mappedMatches}
         </div>
