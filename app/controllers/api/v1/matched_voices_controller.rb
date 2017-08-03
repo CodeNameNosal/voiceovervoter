@@ -2,16 +2,13 @@ class Api::V1::MatchedVoicesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @relevantMatches = MatchedVoice.where({ book_id: params[:book_id] }).order(updated_at: :desc)
+    @relevantMatches = MatchedVoice.where({ book_id: params[:book_id] }).where( user_id: current_user.id ).order(updated_at: :desc)
 
     render json: { relevantMatches: @relevantMatches }
   end
 
 
   def create
-    puts "123456789123456789"
-    puts current_user
-    puts "hello hello hello hello hello"
     new_matched_voice_hash = JSON.parse(request.body.read)
     @new_entry = MatchedVoice.new({
       book_id: new_matched_voice_hash["book_id"],

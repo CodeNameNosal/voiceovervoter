@@ -11,7 +11,9 @@ class BooksIndexContainer extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`/api/v1/books.json`)
+    fetch(`/api/v1/books.json`,{
+      credentials: "same-origin"
+    })
     .then(response => {
       if (response.ok) {
         return response;

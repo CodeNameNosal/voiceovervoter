@@ -18,7 +18,9 @@ class BookShowPage extends Component {
   }
 
   componentDidMount() {
-    fetch(`/api/v1/books/${this.props.match.params.id}`)
+    fetch(`/api/v1/books/${this.props.match.params.id}`,{
+      credentials: "same-origin"
+    })
     .then(response => {
       if (response.ok) {
         return response.json()
@@ -36,7 +38,9 @@ class BookShowPage extends Component {
     .catch(error => console.error(`Error in fetch: ${error.message}`))
 
 
-    fetch(`/api/v1/books/${this.props.match.params.id}/matched_voices`)
+    fetch(`/api/v1/books/${this.props.match.params.id}/matched_voices`,{
+      credentials: "same-origin"
+    })
     .then(response => {
       if (response.ok) {
         return response.json()
@@ -55,7 +59,9 @@ class BookShowPage extends Component {
   }
 
   handleClick(event) {
-    fetch(`/api/v1/voicebunnies/randomVoice`)
+    fetch(`/api/v1/voicebunnies/randomVoice`,{
+      credentials: "same-origin"
+    })
     .then(response => response.json())
     .then(body => {
       this.setState({
