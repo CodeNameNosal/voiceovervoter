@@ -2,7 +2,7 @@ import React from 'react'
 
 const MatchTile = ({ data }) => {
   return (
-    <div className="MatchTile">
+    <div className="small-12 medium-6 large-4 columns">
       <p>Narrator: <a href={data.booking}>{data.talentid}</a></p>
 
       <audio controls>

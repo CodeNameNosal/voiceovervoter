@@ -98,7 +98,9 @@ class BookShowPage extends Component {
         <button className="button" onClick={this.handleClick}>Generate random voice</button>
         {displayMatchForm}
         <hr />
+        <div className="row">
         {mappedMatches}
+        </div>
       </div>
     )
   }
