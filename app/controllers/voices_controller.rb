@@ -1,2 +1,0 @@
-class VoicesController < ApplicationController
-end

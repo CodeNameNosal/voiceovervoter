@@ -37,6 +37,7 @@ class MatchForm extends Component{
   postMatchedVoice(event) {
     fetch(`/api/v1/books/${this.state.book_id}/matched_voices`, {
       method: 'POST',
+      credentials: 'same-origin',
       body: JSON.stringify(event)
     })
     .then(response => response.json())
