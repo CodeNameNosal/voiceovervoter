@@ -29,7 +29,6 @@ class BooksIndexContainer extends React.Component {
   }
 
   render() {
-    debugger;
     let books = this.state.books.map(book => {
       return (
         <BookTile

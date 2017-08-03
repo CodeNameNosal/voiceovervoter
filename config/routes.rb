@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "examples#index"
-  # get 'current_user' => "users#current_user"
 
   resources :books, :only => [:new, :create]
 

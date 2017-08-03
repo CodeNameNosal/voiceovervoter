@@ -5,18 +5,6 @@ class ApplicationController < ActionController::Base
 
  before_action :configure_permitted_parameters, if: :devise_controller?
 
-
-
-
- # def this_is_a_test
- #   respond_to do |format|
- #      format.json{ render :json => @user.to_json }
- #   end
- # end
-
-
-
-
  protected
 
  def configure_permitted_parameters

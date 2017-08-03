@@ -64,4 +64,3 @@ gem 'faraday_middleware'
 gem 'foundation-rails'
 gem 'rails-assets-foundation', source: 'https://rails-assets.org'
 gem "devise"
-gem 'gon'

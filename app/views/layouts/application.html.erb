@@ -5,10 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title><%= content_for?(:title) ? yield(:title) : "Voiceovervoter" %></title>
-    <!-- <%= Gon::Base.render_data %>
 
-    gon.this_is_a_test = current_user.username -->
-    <%= include_gon %>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -18,6 +15,8 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+
+
 
     <% if user_signed_in? %>
       Hello, <%= current_user.username %>!
