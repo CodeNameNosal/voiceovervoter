@@ -17,6 +17,34 @@
  */
 
 
-.MatchTile {
-  border: solid mediumslateblue 2px;
-}
+ .MatchTile {
+  border: rgba(0, 112, 149, 0.70) solid 1px;
+  background: rgba(236, 236, 236, 0.70);
+ }
+
+
+body {
+  background: url("background.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  color: midnightblue;
+ }
+
+div.nav-bar {
+  background: rgba(236, 236, 236, 0.65);
+  padding: 10px;
+ }
+
+div.transbox {
+  background: rgba(236, 236, 236, 0.75);
+  margin: 50px;
+  padding: 30px;
+  border: 1px solid rgba(0, 112, 149, 0.70);
+  }
+
+  h1,h2,h3,h4,h5,h6 {
+    color: indigo;
+  }

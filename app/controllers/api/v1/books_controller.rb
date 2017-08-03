@@ -1,6 +1,6 @@
 class Api::V1::BooksController < ApplicationController
   def index
-      render json: Book.where( user_id: current_user.id )
+    render json: Book.all
   end
 
   def show
