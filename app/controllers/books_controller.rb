@@ -12,10 +12,10 @@ class BooksController < ApplicationController
       render :new
     end
   end
-  
+
   private
 
   def book_params
-    params.require(:book).permit(:title, :author)
+    params.require(:book).permit(:title, :author, :user_id)
   end
 end

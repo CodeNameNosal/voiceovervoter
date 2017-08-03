@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title><%= content_for?(:title) ? yield(:title) : "Voiceovervoter" %></title>
+    <!-- <%= Gon::Base.render_data %>
+
+    gon.this_is_a_test = current_user.username -->
+    <%= include_gon %>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -12,12 +16,27 @@
   </head>
 
   <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <% if user_signed_in? %>
+      Hello, <%= current_user.username %>!
+      <%= link_to "Edit Account", edit_user_registration_path %>
+        ||
+      <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to 'Sign up', new_user_registration_path %>
+        ||
+      <%= link_to 'Sign In', new_user_session_path %>
+    <% end %>
+
+    <br />
     <a href="/">Home Page</a>
     <br />
     <a href="/books/new">New Book</a>
 
     <%= yield %>
-    
+
     <%= javascript_include_tag "application" %>
   </body>
 </html>
