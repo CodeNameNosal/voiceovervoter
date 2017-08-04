@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import BookTile from '../components/BookTile';
+import NoBooks from '../components/NoBooks';
 
 class BooksIndexContainer extends React.Component {
   constructor(props){
@@ -39,7 +40,7 @@ class BooksIndexContainer extends React.Component {
   render() {
     let display;
     if (this.state.error) {
-      display = <h1> No books! </h1>
+      display = <NoBooks />
     } else {
       display = this.state.books.map(book => {
         return (
