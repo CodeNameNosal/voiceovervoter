@@ -2,9 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "examples#index"
 
-  resources :books, :only => [:new, :create]
-
-  get '/books/:id', to: "examples#index"
+  resources :books, :except => [:index]
 
   namespace :api do
     namespace :v1 do
