@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "examples#index"
 
   resources :books, :except => [:index]
+  resources :matched_voices, :only => [:edit, :update, :delete, :destroy]
 
   namespace :api do
     namespace :v1 do
