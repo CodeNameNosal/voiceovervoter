@@ -4,6 +4,7 @@ class MatchForm extends Component{
   constructor(props) {
     super(props);
     this.state = {
+      id: this.props.id,
       book_id: this.props.book_id,
       url: this.props.data.url,
       talentid: this.props.data.talentid,

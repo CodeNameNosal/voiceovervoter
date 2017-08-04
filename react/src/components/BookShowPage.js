@@ -16,6 +16,7 @@ class BookShowPage extends Component {
     }
   this.handleClick = this.handleClick.bind(this)
   this.handleNewItems = this.handleNewItems.bind(this)
+  this.deleteMatch = this.deleteMatch.bind(this)
   }
 
   componentDidMount() {
@@ -85,7 +86,18 @@ class BookShowPage extends Component {
     })
   }
 
-
+  deleteMatch(id){
+    if(confirm('Delete this match?')) {
+      fetch(`/matched_voices/${id}`, {
+        method: 'DELETE',
+        credentials: 'same-origin'
+      })
+      .then(response => response.json())
+      .then(data => {
+        this.handleNewItems(data)
+      })
+    }
+  }
 
   render() {
     let displayMatchForm = ""
@@ -99,11 +111,13 @@ class BookShowPage extends Component {
     }
 
     let mappedMatches = this.state.relevantMatches.map(match => {
+      let individualDelete = () => { this.deleteMatch(match.id) }
 
     return(
       <MatchTile
         key={match.id}
         data={match}
+        deleteMatch={individualDelete}
       />
     )
   })
