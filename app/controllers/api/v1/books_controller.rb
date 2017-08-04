@@ -1,6 +1,10 @@
 class Api::V1::BooksController < ApplicationController
   def index
-    render json: Book.all
+    if current_user
+      render json: Book.where({ user_id: current_user.id })
+    else
+      render json: {error: true}
+    end
   end
 
   def show

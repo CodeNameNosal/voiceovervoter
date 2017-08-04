@@ -15,6 +15,7 @@ class BookShowPage extends Component {
       }
     }
   this.handleClick = this.handleClick.bind(this)
+  this.handleNewItems = this.handleNewItems.bind(this)
   }
 
   componentDidMount() {
@@ -75,6 +76,15 @@ class BookShowPage extends Component {
     .then()
   }
 
+  handleNewItems(data){
+    this.setState({
+      relevantMatches: data.matches,
+      randomVoice: {
+        url: undefined
+      }
+    })
+  }
+
 
 
   render() {
@@ -82,6 +92,7 @@ class BookShowPage extends Component {
     if (this.state.randomVoice.url !== undefined) {
       displayMatchForm =
         <MatchForm
+          handleNewItems={this.handleNewItems}
           data={this.state.randomVoice}
           book_id={this.props.match.params.id}
         />

@@ -6,7 +6,8 @@ class BooksIndexContainer extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      books: []
+      books: [],
+      error : false
     }
   }
 
@@ -25,23 +26,34 @@ class BooksIndexContainer extends React.Component {
     })
     .then(response => response.json())
     .then((responseData) => {
-      this.setState({books: responseData})
+      if (responseData.error) {
+        // console.log(responseData.error)
+        this.setState({error: responseData.error})
+      } else {
+        this.setState({books: responseData})
+      }
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
 
   render() {
-    let books = this.state.books.map(book => {
-      return (
-        <BookTile
-          key={book.id}
-          book={book} />
-      )
-    })
+    let display;
+    if (this.state.error) {
+      display = <h1> No books! </h1>
+    } else {
+      display = this.state.books.map(book => {
+        return (
+          <BookTile
+            key={book.id}
+            book={book} />
+        )
+      })
+    }
+
 
     return (
       <div className="row">
-        {books}
+        {display}
       </div>
     )
   }
