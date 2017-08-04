@@ -63,6 +63,7 @@ class MatchForm extends Component{
           <source src={this.props.data.url} />
           Your user agent does not support the HTML5 Audio element.
         </audio>
+        <br /><br />
         <p>Say something about this match?</p>
 
         <form onSubmit={this.handleFormSubmit}>
