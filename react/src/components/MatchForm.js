@@ -31,7 +31,6 @@ class MatchForm extends Component{
     } else {
       this.setState({ comment: "Please enter a comment" })
     }
-    window.location.reload();
   }
 
   postMatchedVoice(event) {
@@ -41,6 +40,9 @@ class MatchForm extends Component{
       body: JSON.stringify(event)
     })
     .then(response => response.json())
+    .then(data => {
+      this.props.handleNewItems(data)
+    })
   }
 
   validateTextEntry(input) {

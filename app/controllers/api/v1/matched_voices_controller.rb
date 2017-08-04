@@ -19,7 +19,7 @@ class Api::V1::MatchedVoicesController < ApplicationController
       user_id: current_user.id
     })
     if @new_entry.save
-      render json: @new_entry, adapter: :json
+      render json: {matches: MatchedVoice.where({ book_id: params[:book_id] }).order(updated_at: :desc)}, adapter: :json
     end
   end
 
