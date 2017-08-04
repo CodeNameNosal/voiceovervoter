@@ -112,6 +112,8 @@ class BookShowPage extends Component {
         <h1 className='BookShowPage-title'>"{this.state.book.title}"</h1>
         <h3 className='BookShowPage-author'>by {this.state.book.author}</h3>
         <br />
+        <a href={`/books/${this.props.match.params.id}/edit`}>Edit this book?</a>
+        <br />
         <button className="panel" onClick={this.handleClick}>Generate random voice</button>
         {displayMatchForm}
         <br />
