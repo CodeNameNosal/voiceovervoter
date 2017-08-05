@@ -9,6 +9,7 @@ class MatchForm extends Component{
       url: this.props.data.url,
       talentid: this.props.data.talentid,
       booking: this.props.data.booking,
+      demographics: this.props.data.demographics,
       comment: ""
     }
     this.commentStateChanger = this.commentStateChanger.bind(this);
@@ -22,6 +23,7 @@ class MatchForm extends Component{
     event.preventDefault();
     if (this.validateTextEntry(this.state.comment)) {
       let formPayload = {
+        demographics: this.state.demographics,
         book_id: this.state.book_id,
         url: this.state.url,
         talentid: this.state.talentid,
@@ -59,6 +61,7 @@ class MatchForm extends Component{
     return (
       <div className="MatchForm">
         <h3>You're listening to Narrator: <a href={this.props.data.booking}>{this.props.data.talentid}</a></h3>
+        <p>Demographic: {this.props.demo}</p>
         <audio controls>
           <source src={this.props.data.url} />
           Your user agent does not support the HTML5 Audio element.

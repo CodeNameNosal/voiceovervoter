@@ -17,9 +17,10 @@
  */
 
 
- .MatchTile {
+.MatchTile {
   border: rgba(0, 112, 149, 0.70) solid 1px;
   background: rgba(236, 236, 236, 0.70);
+  padding: 40px;
  }
 
 
@@ -45,7 +46,7 @@ div.transbox {
   border: 1px solid rgba(0, 112, 149, 0.70);
   }
 
-  h1,h2,h3,h4,h5,h6 {
+h1,h2,h3,h4,h5,h6 {
     color: indigo;
   }
 

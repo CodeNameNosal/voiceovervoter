@@ -11,7 +11,8 @@ class BookShowPage extends Component {
       randomVoice: {
         url: undefined,
         booking: undefined,
-        talentid: undefined
+        talentid: undefined,
+        demographics: undefined
       }
     }
   this.handleClick = this.handleClick.bind(this)
@@ -70,7 +71,8 @@ class BookShowPage extends Component {
         randomVoice: {
           url: body.randomVoice.url,
           booking: body.randomVoice.bookingURL,
-          talentid: body.randomVoice.talentID
+          talentid: body.randomVoice.talentID,
+          demographics: body.randomVoice.genderAndAge
         }
       })
     })
@@ -99,18 +101,38 @@ class BookShowPage extends Component {
     }
   }
 
+  readableDemo(input){
+    const demoHash = {
+      childBoy: "Male Child",
+      teenageBoy: "Male Teenager",
+      youngAdultMale: "Young Adult Male",
+      middleAgeMale: "Middle Age Male",
+      seniorMale: "Senior Male",
+      childGirl: "Female Child",
+      teenageGirl: "Female Teenager",
+      youngAdultFemale: "Young Adult Female",
+      middleAgeFemale: "Middle Age Female",
+      seniorFemale: "Senior Female"
+    };
+    let output = demoHash[input]
+    return output
+  }
+
   render() {
     let displayMatchForm = ""
     if (this.state.randomVoice.url !== undefined) {
+      let demo = this.readableDemo(this.state.randomVoice.demographics)
       displayMatchForm =
         <MatchForm
           handleNewItems={this.handleNewItems}
           data={this.state.randomVoice}
           book_id={this.props.match.params.id}
+          demo={demo}
         />
     }
 
     let mappedMatches = this.state.relevantMatches.map(match => {
+      let demo = this.readableDemo(match.demographics)
       let individualDelete = () => { this.deleteMatch(match.id) }
 
     return(
@@ -118,6 +140,7 @@ class BookShowPage extends Component {
         key={match.id}
         data={match}
         deleteMatch={individualDelete}
+        demo={demo}
       />
     )
   })

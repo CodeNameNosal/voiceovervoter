@@ -4,6 +4,7 @@ const MatchTile = props => {
   return (
     <div className="small-12 large-6 columns MatchTile">
       <p>Narrator: <a href={props.data.booking}>{props.data.talentid}</a></p>
+      <p>Demographic: {props.demo}</p>
 
       <audio controls>
           <source src={props.data.url} />

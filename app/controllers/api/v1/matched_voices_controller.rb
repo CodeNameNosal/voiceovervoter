@@ -16,6 +16,7 @@ class Api::V1::MatchedVoicesController < ApplicationController
       talentid: new_matched_voice_hash["talentid"],
       booking: new_matched_voice_hash["booking"],
       comment: new_matched_voice_hash["comment"],
+      demographics: new_matched_voice_hash["demographics"],
       user_id: current_user.id
     })
     if @new_entry.save
