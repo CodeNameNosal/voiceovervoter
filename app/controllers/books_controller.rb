@@ -1,4 +1,21 @@
 class BooksController < ApplicationController
+
+  def index
+    if params[:search]
+      @book = Book.search(params[:search]).where({ user_id: current_user.id }).order(updated_at: :desc).first
+      if @book
+        if (params[:search] === nil) || (params[:search] === "") || (params[:search] === " ")
+          flash[:notice] = "No criteria entered. Instead, displaying your most recent book."
+        end
+        redirect_to book_path(@book)
+      else
+        flash[:notice] = "No results found for '#{params[:search]}'"
+        @books = Book.all.order(updated_at: :desc)
+        redirect_to root_path
+      end
+    end
+  end
+
   def new
     @book = Book.new
   end
@@ -29,12 +46,14 @@ class BooksController < ApplicationController
     end
   end
 
-  def show
-  end
+  # def show
+  #   @book = Book.find(params[:id])
+  # end
 
   private
 
   def book_params
     params.require(:book).permit(:title, :author, :user_id)
   end
+
 end
