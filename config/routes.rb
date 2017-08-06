@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :books do
+        collection do
+          get 'search'
+        end
         resources :matched_voices
       end
     end

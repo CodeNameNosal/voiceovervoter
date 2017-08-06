@@ -3,11 +3,16 @@ class Api::V1::BooksController < ApplicationController
 
   def index
     if current_user
-      render json: Book.where({ user_id: current_user.id })
+      if params[:search]
+        render json: Book.search(params[:search]).where({ user_id: current_user.id }).order(updated_at: :desc)
+      else
+        render json: Book.where({ user_id: current_user.id }).order(updated_at: :desc)
+      end
     else
       render json: {error: true}
     end
   end
+  #####
 
   def show
     book = Book.find(params[:id])
@@ -22,4 +27,9 @@ class Api::V1::BooksController < ApplicationController
       render json: {error: true}
     end
   end
+
+
+
+
+
 end
