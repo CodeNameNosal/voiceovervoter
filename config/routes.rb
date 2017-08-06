@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "examples#index"
 
-  resources :books, :except => [:index]
+  resources :books
   resources :matched_voices, :only => [:edit, :update, :delete, :destroy]
 
   namespace :api do

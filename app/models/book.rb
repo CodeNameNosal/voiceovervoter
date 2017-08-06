@@ -7,6 +7,6 @@ class Book < ApplicationRecord
 
   def self.search(query)
     query = "%#{query}%"
-    where("(title like ? or author like ?)", query, query)
+    where("(title ilike ? or author ilike ?)", query, query)
   end
 end
