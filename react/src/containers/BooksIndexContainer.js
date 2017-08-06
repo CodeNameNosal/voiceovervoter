@@ -56,6 +56,7 @@ class BooksIndexContainer extends React.Component {
   }
 
   render() {
+    // debugger
     let display;
     if ((this.state.error) || ((this.state.books.length == 0 && this.state.pageLoaded == true))){
       display = <NoBooks />

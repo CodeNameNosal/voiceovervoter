@@ -8,6 +8,7 @@ const BookTile = props => {
       <div>
         <p className='BookTile-title'>"{props.book.title}"</p>
         <p className='BookTile-author'>by {props.book.author}</p>
+        <img src={props.book.cover} />
       </div>
     </Link>
     <p onClick={props.deleteBook}>DELETE book</p>
