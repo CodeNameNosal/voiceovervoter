@@ -27,13 +27,24 @@
           <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
             ||
           <a href="/books/new">New Book</a>
+          <%= form_tag(books_path, :method => "get", id: "search-form") do %>
+            <div class="row">
+              <div class="small-9 columns">
+              <%= text_field_tag :search, params[:search], placeholder: "Search for my books by title or author" %>
+              </div>
+              <div class="small-1 columns">
+              <%= submit_tag "Search", :name => nil %>
+              </div>
+              <div class="small-2 columns"></div>
+            </div>
+          <% end %>
+          <br />
         <% else %>
           <%= link_to 'Sign up', new_user_registration_path %>
             ||
           <%= link_to 'Sign In', new_user_session_path %>
+          <br />
         <% end %>
-
-        <br />
         <a href="/">Home Page</a>
       </div>
 

@@ -4,4 +4,9 @@ class Book < ApplicationRecord
 
   validates :title, presence: true
   validates :author, presence: true
+
+  def self.search(query)
+    query = "%#{query}%"
+    where("(title ilike ? or author ilike ?)", query, query)
+  end
 end
