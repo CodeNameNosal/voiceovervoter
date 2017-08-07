@@ -47,15 +47,20 @@ div.transbox {
   }
 
 h1,h2,h3,h4,h5,h6 {
-    color: indigo;
-  }
+  color: indigo;
+}
 
 .NoBooks {
   text-align: center;
 }
 
 .DisplayBookInfo {
-    display: block;
-    margin: auto;
-    width: 90%;
+  display: block;
+  margin: auto;
+  width: 90%;
+}
+
+.BookTile-image {
+  width: 175px;
+  height: inherit;
 }

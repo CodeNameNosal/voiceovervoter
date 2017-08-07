@@ -73,7 +73,7 @@ class BooksIndexContainer extends React.Component {
     }
 
     return (
-      <div className="row">
+      <div>
         {display}
       </div>
     )
