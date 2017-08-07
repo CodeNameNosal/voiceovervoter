@@ -61,8 +61,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'faker', github: "stympy/faker"
 gem 'faraday'
 gem 'faraday_middleware'
+gem "devise"
+gem "jquery-rails"
 gem 'foundation-rails'
 gem 'rails-assets-foundation', source: 'https://rails-assets.org'
-gem "devise"
 
 ruby "2.3.3"
