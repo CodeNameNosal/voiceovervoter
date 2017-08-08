@@ -1,4 +1,5 @@
 import React, { Component }  from 'react';
+import {Redirect} from 'react-router-dom';
 import MatchTile from './MatchTile';
 import MatchForm from './MatchForm';
 
@@ -18,6 +19,7 @@ class BookShowPage extends Component {
   this.handleClick = this.handleClick.bind(this)
   this.handleNewItems = this.handleNewItems.bind(this)
   this.deleteMatch = this.deleteMatch.bind(this)
+  this.deleteCurrentBook = this.deleteCurrentBook.bind(this)
   }
 
   componentDidMount() {
@@ -101,6 +103,16 @@ class BookShowPage extends Component {
     }
   }
 
+  deleteCurrentBook(){
+    if(confirm('Delete this current book?')) {
+      fetch(`/api/v1/books/${this.props.match.params.id}`, {
+        method: 'DELETE',
+        credentials: 'same-origin'
+      })
+    }
+    
+  }
+
   readableDemo(input){
     const demoHash = {
       childBoy: "Male Child",
@@ -119,6 +131,7 @@ class BookShowPage extends Component {
   }
 
   render() {
+    // debugger
     let displayMatchForm = ""
     if (this.state.randomVoice.url !== undefined) {
       let demo = this.readableDemo(this.state.randomVoice.demographics)
@@ -151,6 +164,7 @@ class BookShowPage extends Component {
           <h3 className='BookShowPage-author'>by {this.state.book.author}</h3>
           <br />
           <a href={`/books/${this.props.match.params.id}/edit`}>Edit this book?</a>
+          <p onClick={this.deleteCurrentBook}>TRYING TO FIGURE OUT DELETE?!</p>
           <br />
           <button className="panel" onClick={this.handleClick}>Generate random voice</button>
           {displayMatchForm}
