@@ -18,7 +18,7 @@ class Api::V1::BooksController < ApplicationController
 
   def destroy
     @book = Book.find(params[:id]).destroy
-    redirect_to root_path
+    redirect_to books_path
   end
 
 end
