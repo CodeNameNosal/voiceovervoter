@@ -1,5 +1,4 @@
 import React, { Component }  from 'react';
-import {Redirect} from 'react-router-dom';
 import MatchTile from './MatchTile';
 import MatchForm from './MatchForm';
 
@@ -110,7 +109,7 @@ class BookShowPage extends Component {
         credentials: 'same-origin'
       })
     }
-    
+    window.location.href= "/"
   }
 
   readableDemo(input){
@@ -131,7 +130,6 @@ class BookShowPage extends Component {
   }
 
   render() {
-    // debugger
     let displayMatchForm = ""
     if (this.state.randomVoice.url !== undefined) {
       let demo = this.readableDemo(this.state.randomVoice.demographics)
@@ -163,8 +161,10 @@ class BookShowPage extends Component {
           <h1 className='BookShowPage-title'>"{this.state.book.title}"</h1>
           <h3 className='BookShowPage-author'>by {this.state.book.author}</h3>
           <br />
-          <a href={`/books/${this.props.match.params.id}/edit`}>Edit this book?</a>
-          <p onClick={this.deleteCurrentBook}>TRYING TO FIGURE OUT DELETE?!</p>
+          <div className="editAndDeleteIcons">
+            <a href={`/books/${this.props.match.params.id}/edit`}><i className="fa fa-times fa-3x" ></i></a>
+            <p onClick={this.deleteCurrentBook}><i className="fa fa-pencil-square-o fa-3x" ></i></p>
+          </div>
           <br />
           <button className="panel" onClick={this.handleClick}>Generate random voice</button>
           {displayMatchForm}

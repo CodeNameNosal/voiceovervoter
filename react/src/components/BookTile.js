@@ -25,7 +25,7 @@ class BookTile extends React.Component {
         <h5 className='BookTile-author'>by {this.props.book.author}</h5>
       </div>
       </Link>
-      <div className="small-1 columns BookTileIcons">
+      <div className="small-1 columns editAndDeleteIcons">
         <p onClick={this.props.deleteBook}><i className="fa fa-times fa-3x" ></i></p>
         <a href={`/books/${this.props.book.id}/edit`}><i className="fa fa-pencil-square-o fa-3x" ></i></a>
       </div>

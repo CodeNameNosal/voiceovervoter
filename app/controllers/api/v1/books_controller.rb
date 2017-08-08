@@ -14,11 +14,8 @@ class Api::V1::BooksController < ApplicationController
     render json: { book: book }
   end
 
-
-
   def destroy
     @book = Book.find(params[:id]).destroy
-    redirect_to books_path
   end
 
 end
