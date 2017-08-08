@@ -15,12 +15,7 @@ class Api::V1::BooksController < ApplicationController
   end
 
   def destroy
-    Book.find(params[:id]).destroy
-    if current_user
-      render json: Book.where({ user_id: current_user.id }).order(updated_at: :desc)
-    else
-      render json: {error: true}
-    end
+    @book = Book.find(params[:id]).destroy
   end
-  
+
 end

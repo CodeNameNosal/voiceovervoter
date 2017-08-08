@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170805175631) do
+ActiveRecord::Schema.define(version: 20170807223920) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,8 @@ ActiveRecord::Schema.define(version: 20170805175631) do
     t.string "author", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "cover", default: "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+    t.string "cover", default: "http://res.cloudinary.com/codenamenosal/image/upload/v1502145061/book-750698_960_720_kwx6ie.jpg"
+    t.boolean "goodreads_cover", default: false
     t.index ["user_id"], name: "index_books_on_user_id"
   end
 

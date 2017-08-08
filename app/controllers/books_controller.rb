@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  skip_before_action :verify_authenticity_token
 
   def index
     if params[:search]
@@ -25,11 +26,8 @@ class BooksController < ApplicationController
     searched_title = @book.title
     if goodreadsSearch(@book.title)
       @book.cover = @cover
+      @book.goodreads_cover = true
     end
-
-
-
-
 
     if @book.save
       redirect_to root_path, notice: "Book has been added to your library."
@@ -54,12 +52,19 @@ class BooksController < ApplicationController
     end
   end
 
-  # def show
-  #   @book = Book.find(params[:id])
-  # end
+
+
+  def destroy
+    Book.find(params[:id]).destroy
+    if current_user
+      render json: Book.where({ user_id: current_user.id }).order(updated_at: :desc)
+    else
+      render json: {error: true}
+    end
+  end
 
   private
-  
+
   def goodreadsSearch(searched_title)
     client = Goodreads::Client.new(:api_key => ENV['GOODREADS_KEY'], :api_secret => ENV['GOODREADS_SECRET'])
     search = client.search_books(searched_title)

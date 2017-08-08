@@ -40,7 +40,7 @@ class BooksIndexContainer extends React.Component {
 
   deleteBook(id){
     if(confirm('Delete this book?')) {
-      fetch(`/api/v1/books/${id}`, {
+      fetch(`/books/${id}`, {
         method: 'DELETE',
         credentials: 'same-origin'
       })

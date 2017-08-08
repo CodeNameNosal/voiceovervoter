@@ -18,6 +18,7 @@ class BookShowPage extends Component {
   this.handleClick = this.handleClick.bind(this)
   this.handleNewItems = this.handleNewItems.bind(this)
   this.deleteMatch = this.deleteMatch.bind(this)
+  this.deleteCurrentBook = this.deleteCurrentBook.bind(this)
   }
 
   componentDidMount() {
@@ -101,6 +102,16 @@ class BookShowPage extends Component {
     }
   }
 
+  deleteCurrentBook(){
+    if(confirm('Delete this current book?')) {
+      fetch(`/api/v1/books/${this.props.match.params.id}`, {
+        method: 'DELETE',
+        credentials: 'same-origin'
+      })
+    }
+    window.location.href= "/"
+  }
+
   readableDemo(input){
     const demoHash = {
       childBoy: "Male Child",
@@ -150,7 +161,10 @@ class BookShowPage extends Component {
           <h1 className='BookShowPage-title'>"{this.state.book.title}"</h1>
           <h3 className='BookShowPage-author'>by {this.state.book.author}</h3>
           <br />
-          <a href={`/books/${this.props.match.params.id}/edit`}>Edit this book?</a>
+          <div className="editAndDeleteIcons">
+            <a href={`/books/${this.props.match.params.id}/edit`}><i className="fa fa-times fa-3x" ></i></a>
+            <p onClick={this.deleteCurrentBook}><i className="fa fa-pencil-square-o fa-3x" ></i></p>
+          </div>
           <br />
           <button className="panel" onClick={this.handleClick}>Generate random voice</button>
           {displayMatchForm}
