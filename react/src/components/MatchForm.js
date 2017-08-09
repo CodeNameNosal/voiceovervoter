@@ -60,14 +60,14 @@ class MatchForm extends Component{
   render() {
     return (
       <div className="MatchForm">
-        <h3>You're listening to Narrator: <a href={this.props.data.booking}>{this.props.data.talentid}</a></h3>
-        <p>Demographic: {this.props.demo}</p>
+        <h4>You're listening to Narrator: <a href={this.props.data.booking}>{this.props.data.talentid}</a></h4>
+        <h5>Demographic: {this.props.demo}</h5>
         <audio controls>
           <source src={this.props.data.url} />
           Your user agent does not support the HTML5 Audio element.
         </audio>
         <br /><br />
-        <p>Say something about this match?</p>
+        <h6>Say something about this match?</h6>
 
         <form onSubmit={this.handleFormSubmit}>
           <label htmlFor={this.state.comment}>

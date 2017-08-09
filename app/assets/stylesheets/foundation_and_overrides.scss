@@ -1362,7 +1362,7 @@ $panel-font-color: indigo;
 
 // Background color for the top bar
 // $topbar-bg-color: $oil;
-// $topbar-bg: $topbar-bg-color;
+$topbar-bg: #003351;
 
 // Height and margin
 // $topbar-height: 45px;
@@ -1374,26 +1374,27 @@ $panel-font-color: indigo;
 
 // Style the top bar dropdown elements
 // $topbar-dropdown-bg: $oil;
-// $topbar-dropdown-link-color: $white;
-// $topbar-dropdown-link-bg: $oil;
+$topbar-dropdown-link-color: #d4c3ff;
+$topbar-dropdown-link-bg: #003351;
+$topbar-dropdown-link-bg-hover: #004d7c;
 // $topbar-dropdown-link-weight: $font-weight-normal;
 // $topbar-dropdown-toggle-size: 5px;
 // $topbar-dropdown-toggle-color: $white;
 // $topbar-dropdown-toggle-alpha: 0.4;
 
 // Set the link colors and styles for top-level nav
-// $topbar-link-color: $white;
-// $topbar-link-color-hover: $white;
-// $topbar-link-color-active: $white;
-// $topbar-link-color-active-hover: $white;
+$topbar-link-color: #d4c3ff;
+$topbar-link-color-hover: #d4c3ff;
+$topbar-link-color-active: #d4c3ff;
+$topbar-link-color-active-hover: #d4c3ff;
 // $topbar-link-weight: $font-weight-normal;
 // $topbar-link-font-size: rem-calc(13);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
-// $topbar-link-bg: $topbar-bg;
+$topbar-link-bg: #003351;
 // $topbar-link-bg-color-hover: $charcoal;
-// $topbar-link-bg-hover: #272727;
-// $topbar-link-bg-active: $primary-color;
-// $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
+$topbar-link-bg-hover: #004d7c;
+$topbar-link-bg-active: #300051;
+$topbar-link-bg-active-hover: scale-color(#590098, $lightness: -14%);
 // $topbar-link-font-family: $body-font-family;
 // $topbar-link-text-transform: none;
 // $topbar-link-padding: $topbar-height / 3;
@@ -1413,10 +1414,10 @@ $panel-font-color: indigo;
 // $topbar-menu-link-transform: uppercase;
 // $topbar-menu-link-font-size: rem-calc(13);
 // $topbar-menu-link-weight: $font-weight-bold;
-// $topbar-menu-link-color: $white;
-// $topbar-menu-icon-color: $white;
-// $topbar-menu-link-color-toggled: $jumbo;
-// $topbar-menu-icon-color-toggled: $jumbo;
+$topbar-menu-link-color: #d4c3ff;
+$topbar-menu-icon-color: #d4c3ff;
+$topbar-menu-link-color-toggled: #d4c3ff;
+$topbar-menu-icon-color-toggled: #d4c3ff;
 
 // Transitions and breakpoint styles
 // $topbar-transition-speed: 300ms;
@@ -1430,7 +1431,7 @@ $panel-font-color: indigo;
 
 // Sticky Class
 // $topbar-sticky-class: ".sticky";
-// $topbar-arrows: true; //Set false to remove the triangle icon from the menu item
+$topbar-arrows: false; //Set false to remove the triangle icon from the menu item
 
 // 36. Visibility Classes
 // - - - - - - - - - - - - - - - - - - - - - - - - -

@@ -20,9 +20,7 @@
 .MatchTile {
   border: rgba(0, 112, 149, 0.70) solid 1px;
   background: rgba(236, 236, 236, 0.70);
-  padding: 40px;
  }
-
 
 body {
   background: url("http://res.cloudinary.com/codenamenosal/image/upload/v1501877340/background_rhyp52.jpg") no-repeat center center fixed;
@@ -30,24 +28,24 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   color: midnightblue;
  }
 
 div.nav-bar {
   background: rgba(236, 236, 236, 0.65);
-  padding: 10px;
  }
 
 div.transbox {
   background: rgba(236, 236, 236, 0.75);
-  margin: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
   padding: 30px;
   border: 1px solid rgba(0, 112, 149, 0.70);
   }
 
-h1,h2,h3,h4,h5,h6 {
+h1,h2,h3,h4,h5,h6, p, label {
   color: indigo;
+  font-family: Perpetua, Baskerville, 'Big Caslon', 'Palatino Linotype', Palatino, 'URW Palladio L', 'Nimbus Roman No9 L', serif;
 }
 
 .NoBooks {
@@ -65,6 +63,29 @@ h1,h2,h3,h4,h5,h6 {
   height: inherit;
 }
 
-.editAndDeleteIcons a {
-  color: inherit;
+.editAndDeleteIcons * {
+  color: midnightblue;
+}
+
+.overrideNav {
+  background-color: #003351;
+}
+
+.BookTile {
+  text-align: center;
+  border: rgba(0, 112, 149, 0.70) solid 1px;
+  background: rgba(236, 236, 236, 0.70);
+  margin-bottom: 8px;
+}
+
+.top-bar-section ul li {
+  background-color: #004d7c
+}
+
+button.generateButton {
+  left:40%;
+}
+
+a {
+  font-family: Perpetua, Baskerville, 'Big Caslon', 'Palatino Linotype', Palatino, 'URW Palladio L', 'Nimbus Roman No9 L', serif;
 }
