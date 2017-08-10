@@ -18,6 +18,9 @@ class MatchForm extends Component{
     this.postMatchedVoice = this.postMatchedVoice.bind(this);
   }
 
+  componentDidMount() {
+    this.props.loadingHandler()
+  }
 
   handleFormSubmit(event) {
     event.preventDefault();
@@ -55,7 +58,6 @@ class MatchForm extends Component{
   commentStateChanger(event) {
     this.setState({ comment: event.target.value })
   }
-
 
   render() {
     return (

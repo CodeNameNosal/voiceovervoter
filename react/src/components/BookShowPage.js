@@ -6,6 +6,8 @@ class BookShowPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      awaitingMatchForm: false,
+      matchFormDisplayed: false,
       book: {},
       relevantMatches: [],
       randomVoice: {
@@ -19,6 +21,7 @@ class BookShowPage extends Component {
   this.handleNewItems = this.handleNewItems.bind(this)
   this.deleteMatch = this.deleteMatch.bind(this)
   this.deleteCurrentBook = this.deleteCurrentBook.bind(this)
+  this.loadingHandler = this.loadingHandler.bind(this)
   }
 
   componentDidMount() {
@@ -63,6 +66,7 @@ class BookShowPage extends Component {
   }
 
   handleClick(event) {
+    this.setState({ awaitingMatchForm: true })
     fetch(`/api/v1/voicebunnies/randomVoice`,{
       credentials: "same-origin"
     })
@@ -79,8 +83,14 @@ class BookShowPage extends Component {
     })
   }
 
+  loadingHandler(){
+    this.setState({ awaitingMatchForm: false, matchFormDisplayed: true })
+  }
+
   handleNewItems(data){
     this.setState({
+      awaitingMatchForm: false,
+      matchFormDisplayed: false,
       relevantMatches: data.matches,
       randomVoice: {
         url: undefined
@@ -129,6 +139,9 @@ class BookShowPage extends Component {
   }
 
   render() {
+
+
+
     let displayMatchForm = ""
     if (this.state.randomVoice.url !== undefined) {
       let demo = this.readableDemo(this.state.randomVoice.demographics)
@@ -138,7 +151,14 @@ class BookShowPage extends Component {
           data={this.state.randomVoice}
           book_id={this.props.match.params.id}
           demo={demo}
+          loadingHandler={this.loadingHandler}
         />
+    }
+
+
+    let loadingString = ""
+    if ((this.state.awaitingMatchForm == true) && (this.state.matchFormDisplayed == false)) {
+      loadingString = "Connecting to VoiceBunny..."
     }
 
     let mappedMatches = this.state.relevantMatches.map(match => {
@@ -175,12 +195,13 @@ class BookShowPage extends Component {
             </div>
             <div className="small-7 columns">
               <div>
+                {loadingString}
                 {displayMatchForm}
               </div>
             </div>
           </div>
         </div>
-        <ul className="small-block-grid-1 medium-block-grid-2">
+        <ul className="small-block-grid-1 medium-block-grid-2 large-block-grid-2">
           {mappedMatches}
         </ul>
       </div>
