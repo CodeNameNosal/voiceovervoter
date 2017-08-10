@@ -165,7 +165,7 @@ class BookShowPage extends Component {
                 <h3 className='BookShowPage-author'>by {this.state.book.author}</h3>
               </div>
               <br />
-                <button className="panel generateButton centered" onClick={this.handleClick}>Generate random voice</button>
+                <button className="generateButton centered" onClick={this.handleClick}>Generate random voice</button>
               <br />
             </div>
             <div className="small-1 columns editAndDeleteIcons">

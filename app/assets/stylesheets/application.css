@@ -29,11 +29,17 @@ body {
   -o-background-size: cover;
   background-size: cover;
   color: midnightblue;
+  display: flex;
+  flex-direction: column;
  }
 
 h1,h2,h3,h4,h5,h6, p, label {
  color: indigo;
  font-family: Perpetua, Baskerville, 'Big Caslon', 'Palatino Linotype', Palatino, 'URW Palladio L', 'Nimbus Roman No9 L', serif;
+}
+
+html, body {
+  height: 100%;
 }
 
 /*ELEMENT*/
@@ -42,34 +48,30 @@ h1,h2,h3,h4,h5,h6, p, label {
   color: midnightblue;
 }
 
-button.generateButton {
-  display: inline-block;
-}
-
 .top-bar-section ul li {
   background-color: #004d7c
 }
 
 .ShowTile {
-  border: midnightblue solid 2px;
   background: rgba(21, 47, 92, 0.22);
   margin-bottom: 30px;
   padding: 20px;
-  border-radius: 25px;
 }
 
 .Tile {
-  border: rgba(0, 112, 149, 0.70) solid 1px;
   background: rgba(236, 236, 236, 0.70);
 }
 
 div.transbox {
-  background: rgba(236, 236, 236, 0.75);
+  background: rgba(236, 236, 236, 0.90);
   margin-left: 50px;
   margin-right: 50px;
-  padding: 30px;
-  border: 1px solid rgba(0, 112, 149, 0.70);
-  }
+  padding:30px;
+  border-left: 1px solid midnightblue;
+  border-right: 1px solid midnightblue;
+
+  flex-grow: 1;
+}
 
 /*MODIFIER*/
 
