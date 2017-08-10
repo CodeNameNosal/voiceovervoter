@@ -43,8 +43,11 @@
           </ul>
           <!-- Right Nav Section -->
           <ul class="right">
+            <% if user_signed_in? %>
+              <li><a href="#">Greetings, <%=current_user.username%></a></li>
+            <% end %>
             <li class="has-dropdown">
-              <a href="#">Account</a>
+              <a href="#">ACCOUNT</a>
               <ul class="dropdown">
                 <% if user_signed_in? %>
                   <li class="overrideNav"><%= link_to "Edit Account", edit_user_registration_path %></li>
