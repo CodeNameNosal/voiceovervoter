@@ -73,9 +73,9 @@ class BooksIndexContainer extends React.Component {
     }
 
     return (
-      <div>
+      <ul className="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
         {display}
-      </div>
+      </ul>
     )
   }
 }

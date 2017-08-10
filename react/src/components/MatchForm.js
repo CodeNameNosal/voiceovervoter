@@ -60,27 +60,31 @@ class MatchForm extends Component{
   render() {
     return (
       <div className="MatchForm">
-        <h4>You're listening to Narrator: <a href={this.props.data.booking}>{this.props.data.talentid}</a></h4>
-        <h5>Demographic: {this.props.demo}</h5>
-        <audio controls>
-          <source src={this.props.data.url} />
-          Your user agent does not support the HTML5 Audio element.
-        </audio>
-        <br /><br />
+        <div className="row">
+          <div className="small-6 columns">
+            <h4>You're listening to Narrator: <a className="bold" href={this.props.data.booking}>{this.props.data.talentid}</a></h4>
+            <h5>Demographic: {this.props.demo}</h5>
+            <audio controls>
+              <source src={this.props.data.url} />
+              Your user agent does not support the HTML5 Audio element.
+            </audio>
+          </div>
+        <div className="small-6 columns makeRight">
         <h6>Say something about this match?</h6>
-
+        <form onSubmit={this.handleFormSubmit}>
+          <input className='button' type='submit' value='Submit' /></form>
+        </div>
         <form onSubmit={this.handleFormSubmit}>
           <label htmlFor={this.state.comment}>
-          <input
-            name="comment"
-            onChange={this.commentStateChanger}
-            type="text"
-            value={this.state.comment}
-          />
-        </label>
-        <input className='button' type='submit' value='Submit' />
-      </form>
-
+            <input
+              name="comment"
+              onChange={this.commentStateChanger}
+              type="text"
+              value={this.state.comment}
+            />
+          </label>
+        </form>
+        </div>
       </div>
     )
   }

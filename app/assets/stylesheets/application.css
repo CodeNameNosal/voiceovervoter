@@ -17,10 +17,10 @@
  */
 
 
-.MatchTile {
-  border: rgba(0, 112, 149, 0.70) solid 1px;
-  background: rgba(236, 236, 236, 0.70);
- }
+/*BLOCK*/
+a {
+  font-family: Perpetua, Baskerville, 'Big Caslon', 'Palatino Linotype', Palatino, 'URW Palladio L', 'Nimbus Roman No9 L', serif;
+}
 
 body {
   background: url("http://res.cloudinary.com/codenamenosal/image/upload/v1501877340/background_rhyp52.jpg") no-repeat center center fixed;
@@ -31,9 +31,37 @@ body {
   color: midnightblue;
  }
 
-div.nav-bar {
-  background: rgba(236, 236, 236, 0.65);
- }
+h1,h2,h3,h4,h5,h6, p, label {
+ color: indigo;
+ font-family: Perpetua, Baskerville, 'Big Caslon', 'Palatino Linotype', Palatino, 'URW Palladio L', 'Nimbus Roman No9 L', serif;
+}
+
+/*ELEMENT*/
+
+.editAndDeleteIcons * {
+  color: midnightblue;
+}
+
+button.generateButton {
+  display: inline-block;
+}
+
+.top-bar-section ul li {
+  background-color: #004d7c
+}
+
+.ShowTile {
+  border: midnightblue solid 2px;
+  background: rgba(21, 47, 92, 0.22);
+  margin-bottom: 30px;
+  padding: 20px;
+  border-radius: 25px;
+}
+
+.Tile {
+  border: rgba(0, 112, 149, 0.70) solid 1px;
+  background: rgba(236, 236, 236, 0.70);
+}
 
 div.transbox {
   background: rgba(236, 236, 236, 0.75);
@@ -43,49 +71,19 @@ div.transbox {
   border: 1px solid rgba(0, 112, 149, 0.70);
   }
 
-h1,h2,h3,h4,h5,h6, p, label {
-  color: indigo;
-  font-family: Perpetua, Baskerville, 'Big Caslon', 'Palatino Linotype', Palatino, 'URW Palladio L', 'Nimbus Roman No9 L', serif;
+/*MODIFIER*/
+
+.bold {
+  font-weight: bold;
 }
 
-.NoBooks {
+.centered * {
   text-align: center;
-}
-
-.DisplayBookInfo {
-  display: block;
-  margin: auto;
-  width: 90%;
-}
-
-.BookTile-image {
-  width: 175px;
-  height: inherit;
-}
-
-.editAndDeleteIcons * {
-  color: midnightblue;
 }
 
 .overrideNav {
   background-color: #003351;
 }
-
-.BookTile {
-  text-align: center;
-  border: rgba(0, 112, 149, 0.70) solid 1px;
-  background: rgba(236, 236, 236, 0.70);
-  margin-bottom: 8px;
-}
-
-.top-bar-section ul li {
-  background-color: #004d7c
-}
-
-button.generateButton {
-  left:40%;
-}
-
-a {
-  font-family: Perpetua, Baskerville, 'Big Caslon', 'Palatino Linotype', Palatino, 'URW Palladio L', 'Nimbus Roman No9 L', serif;
+.makeRight * {
+  text-align: right;
 }

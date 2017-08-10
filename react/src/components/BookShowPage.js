@@ -77,7 +77,6 @@ class BookShowPage extends Component {
         }
       })
     })
-    .then()
   }
 
   handleNewItems(data){
@@ -155,27 +154,35 @@ class BookShowPage extends Component {
         />
       )
     })
-    
+
     return(
-      <div className='BookShowPage'>
-        <div className='DisplayBookInfo rows'>
-          <div className="small-11 columns">
-            <h1 className='BookShowPage-title'>"{this.state.book.title}"</h1>
-            <h3 className='BookShowPage-author'>by {this.state.book.author}</h3>
-          </div>
-          <div className="small-1 columns editAndDeleteIcons">
-            <p onClick={this.deleteCurrentBook}><i className="fa fa-times fa-3x" ></i></p>
-            <a href={`/books/${this.props.match.params.id}/edit`}><i className="fa fa-pencil-square-o fa-3x" ></i></a>
-          </div>
-        </div>
         <div>
-          <button className="panel generateButton" onClick={this.handleClick}>Generate random voice</button>
-          {displayMatchForm}
+          <div className='ShowTile'>
+          <div className='row'>
+            <div className="small-4 columns">
+              <div>
+                <h1 className='BookShowPage-title'>"{this.state.book.title}"</h1>
+                <h3 className='BookShowPage-author'>by {this.state.book.author}</h3>
+              </div>
+              <br />
+                <button className="panel generateButton centered" onClick={this.handleClick}>Generate random voice</button>
+              <br />
+            </div>
+            <div className="small-1 columns editAndDeleteIcons">
+              <i onClick={this.deleteCurrentBook} className="fa fa-times fa-lg" ></i>
+              <br />
+              <a href={`/books/${this.props.match.params.id}/edit`}><i className="fa fa-pencil-square-o fa-lg" ></i></a>
+            </div>
+            <div className="small-7 columns">
+              <div>
+                {displayMatchForm}
+              </div>
+            </div>
+          </div>
         </div>
-        <br />
         <ul className="small-block-grid-1 medium-block-grid-2">
-        {mappedMatches}
-      </ul>
+          {mappedMatches}
+        </ul>
       </div>
     )
   }
