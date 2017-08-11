@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import BookTile from '../components/BookTile';
-import NoBooks from '../components/NoBooks';
 
 class BooksIndexContainer extends React.Component {
   constructor(props){
@@ -58,7 +57,7 @@ class BooksIndexContainer extends React.Component {
   render() {
     let display;
     if ((this.state.error) || ((this.state.books.length == 0 && this.state.pageLoaded == true))){
-      display = <NoBooks />
+      display = <h1 className="centered">Welcome, you'll want to add some books to begin</h1>
     } else {
       display = this.state.books.map(book => {
         let individualDelete = () => { this.deleteBook(book.id) }

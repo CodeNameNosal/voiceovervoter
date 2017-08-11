@@ -158,7 +158,7 @@ class BookShowPage extends Component {
 
     let loadingString = ""
     if ((this.state.awaitingMatchForm == true) && (this.state.matchFormDisplayed == false)) {
-      loadingString = "Connecting to VoiceBunny..."
+      loadingString = <div className="centered">"Connecting to VoiceBunny..."</div>
     }
 
     let mappedMatches = this.state.relevantMatches.map(match => {
