@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :matched_voices
-  has_many :books
+  has_many :matched_voices, dependent: :destroy
+  has_many :books, dependent: :destroy
 
   validates :username, presence: true
 end
