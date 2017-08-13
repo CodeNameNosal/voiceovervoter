@@ -1,5 +1,5 @@
 class Book < ApplicationRecord
-  has_many :matched_voices
+  has_many :matched_voices, dependent: :destroy
   belongs_to :user
 
   validates :title, presence: true

@@ -12,24 +12,27 @@ Book.create(user_id: 1, title: 'Holistic Car Repair', author: 'Name Redacted')
 MatchedVoice.create(
   user_id: 1,
   book_id: 3,
-  talentid: "I6V30",
-  url: "https://voicebunny.s3.amazonaws.com/sample/VoiceBunny_-_ID_B8AMQ8O_-_Sample_80459.mp3",
-  booking: "https://www.google.com",
-  comment: "Wow, would make a great narrator for this!"
+  talentid: "5FC7984",
+  url: "https://voicebunny.s3.amazonaws.com/sample/VoiceBunny_-_ID_5FC7984_-_Sample_36393.mp3",
+  booking: "http://voicebunny.com/search/samples/5FC7984",
+  comment: "This voice is perfect for the tone of this book",
+  demographics: "youngAdultMale"
   )
 MatchedVoice.create(
   user_id: 1,
   book_id: 3,
-  talentid: "FX42J",
-  url: "https://voicebunny.s3.amazonaws.com/sample/VoiceBunny_-_ID_B8AMQ8O_-_Sample_80459.mp3",
-  booking: "https://www.google.com",
-  comment: "This voice is perfect for the tone of this book"
+  talentid: "J69RHAK",
+  url: "https://voicebunny.s3.amazonaws.com/sample/VoiceBunny_-_ID_J69RHAK_-_Sample_106655.mp3",
+  booking: "http://voicebunny.com/search/samples/J69RHAK",
+  comment: "Just meh",
+  demographics: "youngAdultFemale"
   )
 MatchedVoice.create(
   user_id: 1,
   book_id: 3,
-  talentid: "F64GK",
-  url: "https://voicebunny.s3.amazonaws.com/sample/VoiceBunny_-_ID_B8AMQ8O_-_Sample_80459.mp3",
-  booking: "https://www.google.com",
-  comment: "This voice would be hilarious for the narrator, but isn't a good fit."
+  talentid: "32J898K",
+  url: "https://voicebunny.s3.amazonaws.com/sample/VoiceBunny_-_ID_32J898K_-_Sample_11617.mp3",
+  booking: "http://voicebunny.com/search/samples/32J898K",
+  comment: "Neato keen!",
+  demographics: "teenageGirl"
   )
