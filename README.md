@@ -1,5 +1,8 @@
 # README
 
+[ ![Codeship Status for CodeNameNosal/voiceovervoter](https://app.codeship.com/projects/88fffe30-60c0-0135-2505-76aad5b2ecb8/status?branch=master)](https://app.codeship.com/projects/239540)
+![Code Climate](https://codeclimate.com/github/CodeNameNosal/voiceovervoter.png)
+
 <h1>Voiceover Voter</h1>
 <h2>A fun application for audiobook fans and promotional tool for voiceover actors.</h2>
 
@@ -36,7 +39,7 @@
 
 <h5>Technologies</h5>
 <ul>
-<li>Backend: Rails 5.1.2</li>
+<li>Backend: Rails 5.1.2, Ruby.2.3.3</li>
 <li>Frontend: React.js and Embedded Ruby</li>
 <li>User Authentication: Devise</li>
 <li>Styling: Foundation</li>
