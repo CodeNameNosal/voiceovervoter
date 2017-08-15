@@ -19,10 +19,26 @@ describe('BookTile', () => {
     )
   });
 
+  it('should render a BookTile', () => {
+    expect(wrapper.find(BookTile)).toBePresent()
+  })
+
   it("should render the book's title", () => {
-    expect(wrapper.find('.BookTile-title').text()).toEqual('"Cooking for Beginners"')
+    expect(wrapper.find('#BookTile-title')).toBePresent();
+    expect(wrapper.find('#BookTile-title').text()).toEqual('"Cooking for Beginners"')
   })
+
   it("should render the book's author", () => {
-    expect(wrapper.find('.BookTile-author').text()).toEqual('by Chef Yum')
+    expect(wrapper.find('#BookTile-author')).toBePresent();
+    expect(wrapper.find('#BookTile-author').text()).toEqual('by Chef Yum')
   })
+
+  it("should render the edit and delete button section", () => {
+    expect(wrapper.find('.editAndDeleteIcons')).toBePresent();
+  })
+
+  it("should not render unexpected elements", () => {
+    expect(wrapper.find('ul')).not.toBePresent();
+  })
+
 });

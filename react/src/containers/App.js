@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
 import BooksIndexContainer from './BooksIndexContainer';
-import BookShowPage from '../components/BookShowPage';
+import BookShowPage from './BookShowPage';
 
 const App = ({ }) => {
   return (
