@@ -23,9 +23,9 @@ class BookTile extends React.Component {
         </div>
         <Link to={`books/${this.props.book.id}`}>
         <div className="small-8 columns centered">
-          <h2 className='BookTile-title'>"{this.props.book.title}"</h2>
+          <h2 id='BookTile-title'>"{this.props.book.title}"</h2>
           <br />
-          <h4 className='BookTile-author'>by {this.props.book.author}</h4>
+          <h4 id='BookTile-author'>by {this.props.book.author}</h4>
         </div>
         </Link>
         <div className="small-1 columns editAndDeleteIcons">

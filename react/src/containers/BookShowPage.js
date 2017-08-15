@@ -1,6 +1,6 @@
 import React, { Component }  from 'react';
-import MatchTile from './MatchTile';
-import MatchForm from './MatchForm';
+import MatchTile from '../components/MatchTile';
+import MatchForm from '../components/MatchForm';
 
 class BookShowPage extends Component {
   constructor(props) {
@@ -140,8 +140,6 @@ class BookShowPage extends Component {
 
   render() {
 
-
-
     let displayMatchForm = ""
     if (this.state.randomVoice.url !== undefined) {
       let demo = this.readableDemo(this.state.randomVoice.demographics)
@@ -154,7 +152,6 @@ class BookShowPage extends Component {
           loadingHandler={this.loadingHandler}
         />
     }
-
 
     let loadingString = ""
     if ((this.state.awaitingMatchForm == true) && (this.state.matchFormDisplayed == false)) {

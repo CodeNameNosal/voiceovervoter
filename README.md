@@ -57,5 +57,5 @@
 <li>Run `bundle install && npm install && rake db:setup`</li>
 <li>In separate terminals, run `rails server` and `npm start`</li>
 <li>Visit <a href='http://localhost:3000/'>http://localhost:3000/</a> from your browser</li>
-<li>Tests may be run with `rake` and `npm test`. You must got to <a href='http://localhost:9876/'>http://localhost:9876/</a> for Javascript testing</li>
+<li>Tests may be run with `rake` and `npm test`. You must go to <a href='http://localhost:9876/'>http://localhost:9876/</a> for Javascript testing to proceed</li>
 </ul>
