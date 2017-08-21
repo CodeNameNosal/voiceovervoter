@@ -37,6 +37,10 @@ describe('BookTile', () => {
     expect(wrapper.find('.editAndDeleteIcons')).toBePresent();
   })
 
+  it("should link to the correct edit page", () => {
+    expect(wrapper.find('a').at(1)).toHaveProp('href', '/books/1/edit');
+  })
+
   it("should not render unexpected elements", () => {
     expect(wrapper.find('ul')).not.toBePresent();
   })
