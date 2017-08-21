@@ -22,9 +22,11 @@ class BookShowPage extends Component {
   this.deleteMatch = this.deleteMatch.bind(this)
   this.deleteCurrentBook = this.deleteCurrentBook.bind(this)
   this.loadingHandler = this.loadingHandler.bind(this)
+  this.fetchBook = this.fetchBook.bind(this)
+  this.fetchMatches = this.fetchMatches.bind(this)
   }
 
-  componentDidMount() {
+  fetchBook() {
     fetch(`/api/v1/books/${this.props.match.params.id}`,{
       credentials: "same-origin"
     })
@@ -43,8 +45,9 @@ class BookShowPage extends Component {
       });
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
+  }
 
-
+  fetchMatches() {
     fetch(`/api/v1/books/${this.props.match.params.id}/matched_voices`,{
       credentials: "same-origin"
     })
@@ -63,6 +66,11 @@ class BookShowPage extends Component {
       });
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
+  }
+
+  componentDidMount() {
+    this.fetchBook();
+    this.fetchMatches();
   }
 
   handleClick(event) {
