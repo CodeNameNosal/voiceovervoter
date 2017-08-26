@@ -31,7 +31,7 @@
                   <%= form_tag(books_path, :method => "get", id: "search-form") do %>
                     <div class="row collapse overrideNav">
                       <div class="small-11 columns">
-                      <%= text_field_tag :search, params[:search], placeholder: "Search by title or author" %>
+                      <%= text_field_tag :search, params[:search], placeholder: "Search #{current_user.username}'s books" %>
                       </div>
                       <div class="small-1 columns">
                       <%= submit_tag "Search", :name => nil %>

@@ -42,7 +42,7 @@ describe('BookShowPage', () => {
   it('should have the specified initial state', () => {
     expect(wrapper.state()).toEqual({
       awaitingMatchForm: false,
-      matchFormDisplayed: false,
+      MatchFormPresent: false,
       book: {},
       relevantMatches: [],
       randomVoice: {
@@ -68,8 +68,10 @@ describe('BookShowPage', () => {
     expect(wrapper.find(MatchForm)).not.toBePresent();
   });
 
-  it('displays MatchForm component only after a randomVoice has been fetched', () => {
-    wrapper.setState({ randomVoice: {url: "voiceHadBeenFetched"} });
+  it('display of MatchForm component dependent upon state', () => {
+    wrapper.setState({ MatchFormPresent: false });
+    expect(wrapper.find(MatchForm)).not.toBePresent();
+    wrapper.setState({ MatchFormPresent: true });
     expect(wrapper.find(MatchForm)).toBePresent();
   });
 
