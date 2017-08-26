@@ -7,7 +7,7 @@ class BookShowPage extends Component {
     super(props);
     this.state = {
       awaitingMatchForm: false,
-      matchFormDisplayed: false,
+      MatchFormPresent: false,
       book: {},
       relevantMatches: [],
       randomVoice: {
@@ -74,13 +74,18 @@ class BookShowPage extends Component {
   }
 
   handleClick(event) {
-    this.setState({ awaitingMatchForm: true })
+    this.setState({
+      MatchFormPresent: false,
+      awaitingMatchForm: true
+    })
     fetch(`/api/v1/voicebunnies/randomVoice`,{
       credentials: "same-origin"
     })
     .then(response => response.json())
     .then(body => {
       this.setState({
+        awaitingMatchForm: false,
+        MatchFormPresent: true,
         randomVoice: {
           url: body.randomVoice.url,
           booking: body.randomVoice.bookingURL,
@@ -92,17 +97,14 @@ class BookShowPage extends Component {
   }
 
   loadingHandler(){
-    this.setState({ awaitingMatchForm: false, matchFormDisplayed: true })
+    this.setState({ awaitingMatchForm: false })
   }
 
   handleNewItems(data){
     this.setState({
       awaitingMatchForm: false,
-      matchFormDisplayed: false,
       relevantMatches: data.matches,
-      randomVoice: {
-        url: undefined
-      }
+      MatchFormPresent: false
     })
   }
 
@@ -149,7 +151,7 @@ class BookShowPage extends Component {
   render() {
 
     let displayMatchForm = ""
-    if (this.state.randomVoice.url !== undefined) {
+    if (this.state.MatchFormPresent) {
       let demo = this.readableDemo(this.state.randomVoice.demographics)
       displayMatchForm =
         <MatchForm
@@ -162,7 +164,7 @@ class BookShowPage extends Component {
     }
 
     let loadingString = ""
-    if ((this.state.awaitingMatchForm == true) && (this.state.matchFormDisplayed == false)) {
+    if (this.state.awaitingMatchForm == true) {
       loadingString = <div className="centered">"Connecting to VoiceBunny..."</div>
     }
 
