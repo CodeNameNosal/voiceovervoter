@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
+import ButtonPlayer from './ButtonPlayer';
 
 class MatchTile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      playStatus: false,
       editMode: false,
       databaseComment: this.props.data.comment,
       newComment: this.props.data.comment
     }
-  this.toggleEditMode = this.toggleEditMode.bind(this);
-  this.editCommentFromMatchTile = this.editCommentFromMatchTile.bind(this);
-  this.handleFormSubmit = this.handleFormSubmit.bind(this);
-  this.validateTextEntry = this.validateTextEntry.bind(this);
-  this.playSound = this.playSound.bind(this);
+    this.toggleEditMode = this.toggleEditMode.bind(this);
+    this.editCommentFromMatchTile = this.editCommentFromMatchTile.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.validateTextEntry = this.validateTextEntry.bind(this);
   }
 
   validateTextEntry(input) {
@@ -43,26 +42,8 @@ class MatchTile extends Component {
     }
   }
 
-  playSound() {
-    const player = document.querySelector(`audio[id="clip${this.props.data.id}"]`);
-    if (this.state.playStatus) {
-      player.pause();
-      this.setState({ playStatus: false })
-    } else {
-      player.currentTime = 0;
-      player.play();
-      this.setState({ playStatus: true })
-      setTimeout(function() { this.setState({ playStatus: false}); }.bind(this), (player.duration*1000));
-    }
-  }
-
   render() {
-    let icon, comment;
-    if (this.state.playStatus){
-      icon = <i className="fa fa-stop fa-5x" aria-hidden="true"></i>
-    } else {
-      icon = <i className="fa fa-play fa-5x" aria-hidden="true"></i>
-    }
+    let comment;
     if (this.state.editMode) {
       comment = <form onSubmit={this.handleFormSubmit}>
         <label htmlFor={this.state.newComment}>
@@ -82,11 +63,11 @@ class MatchTile extends Component {
       <li>
         <div className="Tile IndividualMatch">
           <div className="row">
-            <div className="small-3 columns centered" id={`clip${this.props.data.id}`} onClick={this.playSound}>
-              {icon}
+            <div className="small-4 columns centered">
+              <ButtonPlayer data={this.props.data}/>
             </div>
-            <div className="small-8 columns">
-            <span>Narrator: <a href={this.props.data.booking}>{this.props.data.talentid}</a></span>
+            <div className="small-7 columns">
+            <h4>Narrator: <a href={this.props.data.booking}>{this.props.data.talentid}</a></h4>
             <p className="demographic">Demographic: {this.props.demo}</p>
             </div>
             <div className="small-1 columns">
@@ -94,16 +75,8 @@ class MatchTile extends Component {
               <i onClick={this.toggleEditMode} className="fa fa-pencil-square-o fa-lg"></i>
             </div>
           </div>
-          <div className="row">
-            <div className="small-2 columns">
-              <audio id={`clip${this.props.data.id}`}>
-                <source src={this.props.data.url} />
-                Your user agent does not support the HTML5 Audio element.
-              </audio>
-            </div>
-            <div className="small-10 columns">
-              {comment}
-            </div>
+          <div>
+            {comment}
           </div>
         </div>
       </li>

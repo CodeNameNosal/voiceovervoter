@@ -1,5 +1,6 @@
 import BookShowPage from '../../src/containers/BookShowPage';
 import MatchTile from '../../src/components/MatchTile';
+import ButtonPlayer from '../../src/components/ButtonPlayer';
 import { Link, BrowserRouter as Router } from 'react-router-dom';
 
 describe('MatchTile', () => {
@@ -37,13 +38,13 @@ describe('MatchTile', () => {
   })
 
   it("should render the talentid", () => {
-    expect(wrapper.find('span')).toBePresent();
-    expect(wrapper.find('span').text()).toEqual('Narrator: L5I3MK');
+    expect(wrapper.find('h4')).toBePresent();
+    expect(wrapper.find('h4').text()).toEqual('Narrator: L5I3MK');
   })
 
-  it("should render one audio tag", () => {
-    expect(wrapper.find('audio')).toBePresent();
-    expect(wrapper.find('audio').length).toBe(1);
+  it("should render one ButtonPlayer component", () => {
+    expect(wrapper.find(ButtonPlayer)).toBePresent()
+    expect(wrapper.find(ButtonPlayer).length).toBe(1);
   })
 
   it("should render the comment of that match", () => {
