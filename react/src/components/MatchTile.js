@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ButtonPlayer from './ButtonPlayer';
+import TextareaWrapper from './TextareaWrapper';
 
 class MatchTile extends Component {
   constructor(props) {
@@ -24,7 +25,11 @@ class MatchTile extends Component {
   }
 
   editCommentFromMatchTile(event){
-    this.setState({ newComment: event.target.value })
+    if (event.target.value.endsWith('\n')) {
+      this.handleFormSubmit(event)
+    } else {
+      this.setState({ newComment: event.target.value })
+    }
   }
 
   handleFormSubmit(event) {
@@ -45,16 +50,11 @@ class MatchTile extends Component {
   render() {
     let comment;
     if (this.state.editMode) {
-      comment = <form onSubmit={this.handleFormSubmit}>
-        <label htmlFor={this.state.newComment}>
-          <input
-            name="comment"
-            onChange={this.editCommentFromMatchTile}
-            type="text"
-            value={this.state.newComment}
+      comment = <TextareaWrapper
+            onSubmitHandler={this.handleFormSubmit}
+            onChangeHandler={this.editCommentFromMatchTile}
+            valuePassed={this.state.newComment}
           />
-        </label>
-      </form>
     } else {
       comment = <p className="comment">{this.state.databaseComment}</p>
     }

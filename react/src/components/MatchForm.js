@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ButtonPlayer from './ButtonPlayer';
+import TextareaWrapper from './TextareaWrapper';
 
 class MatchForm extends Component{
   constructor(props) {
@@ -56,36 +58,32 @@ class MatchForm extends Component{
   }
 
   commentStateChanger(event) {
-    this.setState({ comment: event.target.value })
+    if (event.target.value.endsWith('\n')) {
+      this.handleFormSubmit(event)
+    } else {
+      this.setState({ comment: event.target.value })
+    }
   }
 
   render() {
     return (
       <div className="MatchForm">
         <div className="row">
+          <div className="small-3 columns"><ButtonPlayer data={this.props.data}/></div>
           <div className="small-6 columns">
             <h4>You're listening to Narrator: <a className="bold" href={this.props.data.booking}>{this.props.data.talentid}</a></h4>
             <h5>Demographic: {this.props.demo}</h5>
-            <audio controls>
-              <source src={this.props.data.url} />
-              Your user agent does not support the HTML5 Audio element.
-            </audio>
           </div>
-        <div className="small-6 columns makeRight">
+        <div className="small-3 columns makeRight">
         <h6>Say something about this match?</h6>
         <form onSubmit={this.handleFormSubmit}>
           <input className='button' type='submit' value='Submit' /></form>
         </div>
-        <form onSubmit={this.handleFormSubmit}>
-          <label htmlFor={this.state.comment}>
-            <input
-              name="comment"
-              onChange={this.commentStateChanger}
-              type="text"
-              value={this.state.comment}
-            />
-          </label>
-        </form>
+          <TextareaWrapper
+            onSubmitHandler={this.handleFormSubmit}
+            onChangeHandler={this.commentStateChanger}
+            valuePassed={this.state.comment}
+          />
         </div>
       </div>
     )
