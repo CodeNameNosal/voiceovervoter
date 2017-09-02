@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ButtonPlayer from './ButtonPlayer';
 
 class MatchTile extends Component {
   constructor(props) {
@@ -8,10 +9,10 @@ class MatchTile extends Component {
       databaseComment: this.props.data.comment,
       newComment: this.props.data.comment
     }
-  this.toggleEditMode = this.toggleEditMode.bind(this);
-  this.editCommentFromMatchTile = this.editCommentFromMatchTile.bind(this);
-  this.handleFormSubmit = this.handleFormSubmit.bind(this);
-  this.validateTextEntry = this.validateTextEntry.bind(this);
+    this.toggleEditMode = this.toggleEditMode.bind(this);
+    this.editCommentFromMatchTile = this.editCommentFromMatchTile.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.validateTextEntry = this.validateTextEntry.bind(this);
   }
 
   validateTextEntry(input) {
@@ -60,21 +61,23 @@ class MatchTile extends Component {
 
     return (
       <li>
-        <div className="Tile IndividualMatch row">
-          <div className="small-11 columns">
-          <span>Narrator: <a href={this.props.data.booking}>{this.props.data.talentid}</a></span>
+        <div className="Tile IndividualMatch">
+          <div className="row">
+            <div className="small-4 columns centered">
+              <ButtonPlayer data={this.props.data}/>
+            </div>
+            <div className="small-7 columns">
+            <h4>Narrator: <a href={this.props.data.booking}>{this.props.data.talentid}</a></h4>
+            <p className="demographic">Demographic: {this.props.demo}</p>
+            </div>
+            <div className="small-1 columns">
+              <i onClick={this.props.deleteMatch} className="fa fa-times fa-lg"></i>
+              <i onClick={this.toggleEditMode} className="fa fa-pencil-square-o fa-lg"></i>
+            </div>
           </div>
-          <div className="small-1 columns">
-            <i onClick={this.props.deleteMatch} className="fa fa-times fa-lg"></i>
-            <i onClick={this.toggleEditMode} className="fa fa-pencil-square-o fa-lg"></i>
+          <div>
+            {comment}
           </div>
-          <p className="demographic">Demographic: {this.props.demo}</p>
-
-          <audio controls>
-            <source src={this.props.data.url} />
-            Your user agent does not support the HTML5 Audio element.
-          </audio>
-          {comment}
         </div>
       </li>
     )
