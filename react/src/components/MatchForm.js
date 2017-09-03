@@ -54,7 +54,7 @@ class MatchForm extends Component{
   }
 
   validateTextEntry(input) {
-    return (input != '' && input != null)
+    return (input !== '' && input !== null)
   }
 
   commentStateChanger(event) {

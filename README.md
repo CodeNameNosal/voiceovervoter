@@ -11,22 +11,24 @@
 
 <h5>See it in action:</h5>
 <a href="https://voiceovervoter.herokuapp.com">Hosted at Heroku</a>
+<p>Instructions for use are on the main page</p>
 
 <h5>Introduction</h5>
 <p>As an avid audiobook listener, I wanted to build something that would do more than just highlight an interest of mine. I wanted to give other audiobook fans a fun and interactive tool that hasn't been seen before, while also creating an opportunity for real impact on the industry by unobtrusive promotion of actual voiceover actors.</p>
 
 <h5>Features</h5>
 <ul>
-<li>Users can create and update their own personal account.</li>
+<li>Users can create, update and delete their own personal account.</li>
 <li>Users can sign in/out of their account</li>
 <li>Users can add a book to be displayed upon the root index page.</li>
 <li>Books will display it's cover upon creation</li>
-<li>Users can edit and delete their books from the main page.</li>
-<li>Users can edit and delete specific books from the page for that book.</li>
-<li>Users can search for books by either title or author.</li>
+<li>Books can be edited and deleted from the main page.</li>
+<li>Books can be edited and deleted from that specific book's page.</li>
+<li>Users can search for their own books by either title or author.</li>
 <li>Users can generate randomized voiceover samples.</li>
 <li>Users can save the voiceover samples with commentary to their books with a live update</li>
-<li>Users can delete a book's samples with a live update</li>
+<li>Users can edit and delete a book's voiceover clips with a live update</li>
+<li>Also features a custom audio player for the soundclips</li>
 </ul>
 
 <h5>API's</h5>

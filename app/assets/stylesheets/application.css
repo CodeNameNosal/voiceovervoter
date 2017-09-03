@@ -71,7 +71,7 @@ html, body {
   padding: 10px;
 }
 
-div.transbox {
+.transbox {
   background: rgba(236, 236, 236, 0.90);
   margin-left: 50px;
   margin-right: 50px;
@@ -98,6 +98,6 @@ div.transbox {
 .overrideNav {
   background-color: #003351;
 }
-.makeRight * {
+.makeRight {
   text-align: right;
 }
