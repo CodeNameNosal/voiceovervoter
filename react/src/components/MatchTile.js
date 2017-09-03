@@ -17,7 +17,7 @@ class MatchTile extends Component {
   }
 
   validateTextEntry(input) {
-    return (input != '' && input != null)
+    return (input !== '' && input !== null)
   }
 
   toggleEditMode() {

@@ -1,6 +1,7 @@
 import React, { Component }  from 'react';
 import MatchTile from '../components/MatchTile';
 import MatchForm from '../components/MatchForm';
+import demoHash from '../constants/demoHash';
 
 class BookShowPage extends Component {
   constructor(props) {
@@ -132,19 +133,8 @@ class BookShowPage extends Component {
   }
 
   readableDemo(input){
-    const demoHash = {
-      childBoy: "Male Child",
-      teenageBoy: "Male Teenager",
-      youngAdultMale: "Young Adult Male",
-      middleAgeMale: "Middle Age Male",
-      seniorMale: "Senior Male",
-      childGirl: "Female Child",
-      teenageGirl: "Female Teenager",
-      youngAdultFemale: "Young Adult Female",
-      middleAgeFemale: "Middle Age Female",
-      seniorFemale: "Senior Female"
-    };
-    let output = demoHash[input]
+    const localDemoHash = demoHash
+    let output = localDemoHash[input]
     return output
   }
 
