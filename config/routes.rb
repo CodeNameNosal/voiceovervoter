@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :voicebunnies, :only => [:show]
+      resources :voicebunnies, :only => [:create]
       resources :books do
         collection do
           get 'search'

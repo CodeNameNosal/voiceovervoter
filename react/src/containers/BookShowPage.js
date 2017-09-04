@@ -1,4 +1,5 @@
 import React, { Component }  from 'react';
+import GenerateVoiceButton from '../components/GenerateVoiceButton';
 import MatchTile from '../components/MatchTile';
 import MatchForm from '../components/MatchForm';
 import demoHash from '../constants/demoHash';
@@ -18,7 +19,8 @@ class BookShowPage extends Component {
         demographics: undefined
       }
     }
-  this.handleClick = this.handleClick.bind(this)
+  this.beginVoicebunnyFetch = this.beginVoicebunnyFetch.bind(this)
+  this.completeVoicebunnyFetch = this.completeVoicebunnyFetch.bind(this)
   this.handleNewItems = this.handleNewItems.bind(this)
   this.deleteMatch = this.deleteMatch.bind(this)
   this.deleteCurrentBook = this.deleteCurrentBook.bind(this)
@@ -74,26 +76,23 @@ class BookShowPage extends Component {
     this.fetchMatches();
   }
 
-  handleClick(event) {
+  beginVoicebunnyFetch() {
     this.setState({
       MatchFormPresent: false,
       awaitingMatchForm: true
     })
-    fetch(`/api/v1/voicebunnies/randomVoice`,{
-      credentials: "same-origin"
-    })
-    .then(response => response.json())
-    .then(body => {
-      this.setState({
-        awaitingMatchForm: false,
-        MatchFormPresent: true,
-        randomVoice: {
-          url: body.randomVoice.url,
-          booking: body.randomVoice.bookingURL,
-          talentid: body.randomVoice.talentID,
-          demographics: body.randomVoice.genderAndAge
-        }
-      })
+  }
+
+  completeVoicebunnyFetch(data) {
+    this.setState({
+      awaitingMatchForm: false,
+      MatchFormPresent: true,
+      randomVoice: {
+        url: data.randomVoice.url,
+        booking: data.randomVoice.bookingURL,
+        talentid: data.randomVoice.talentID,
+        demographics: data.randomVoice.genderAndAge
+       }
     })
   }
 
@@ -172,17 +171,33 @@ class BookShowPage extends Component {
       )
     })
 
+    let demographicOptions = ['Male', 'Female', 'No preference']
+    let collectionOfButtons = demographicOptions.map(demographic => {
+      return(
+        <GenerateVoiceButton
+          key={demographic}
+          gender={demographic}
+          beginVoicebunnyFetch={this.beginVoicebunnyFetch}
+          completeVoicebunnyFetch={this.completeVoicebunnyFetch}
+        />
+      )
+    })
+
     return(
         <div>
           <div className='ShowTile'>
           <div className='row'>
-            <div className="small-4 columns">
+            <div className="small-5 columns">
               <div>
                 <h1 className='BookShowPage-title'>"{this.state.book.title}"</h1>
                 <h3 className='BookShowPage-author'>by {this.state.book.author}</h3>
               </div>
               <br />
-                <button className="generateButton centered" onClick={this.handleClick}>Generate random voice</button>
+            <div className="centered">
+              <h6>Click below to generate a voiceover sample</h6>
+              {collectionOfButtons}
+              <h6>You can select the narrator by gender</h6>
+            </div>
               <br />
             </div>
             <div className="small-1 columns editAndDeleteIcons">
@@ -190,7 +205,7 @@ class BookShowPage extends Component {
               <br />
               <a href={`/books/${this.props.match.params.id}/edit`}><i className="fa fa-pencil-square-o fa-lg" ></i></a>
             </div>
-            <div className="small-7 columns">
+            <div className="small-6 columns">
               <div>
                 {loadingString}
                 {displayMatchForm}

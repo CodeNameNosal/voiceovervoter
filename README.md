@@ -26,6 +26,7 @@
 <li>Books can be edited and deleted from that specific book's page.</li>
 <li>Users can search for their own books by either title or author.</li>
 <li>Users can generate randomized voiceover samples.</li>
+<li>Users can optionally generate narrators by selected gender.</li>
 <li>Users can save the voiceover samples with commentary to their books with a live update</li>
 <li>Users can edit and delete a book's voiceover clips with a live update</li>
 <li>Also features a custom audio player for the soundclips</li>

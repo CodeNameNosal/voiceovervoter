@@ -1,6 +1,7 @@
 import BookShowPage from '../../src/containers/BookShowPage';
 import MatchTile from '../../src/components/MatchTile';
 import MatchForm from '../../src/components/MatchForm';
+import GenerateVoiceButton from '../../src/components/GenerateVoiceButton';
 
 describe('BookShowPage', () => {
     let wrapper, fetchBookSpy, fetchMatchesSpy, deleteCurrentBookSpy;
@@ -34,9 +35,9 @@ describe('BookShowPage', () => {
     expect(deleteCurrentBookSpy).toHaveBeenCalled();
   });
 
-  it('should render the "Generate random voice" button', () => {
-    expect(wrapper.find('button.generateButton')).toBePresent();
-    expect(wrapper.find('button.generateButton').text()).toMatch('Generate random voice');
+  it('should render the GenerateVoiceButton components', () => {
+    expect(wrapper.find(GenerateVoiceButton)).toBePresent();
+    expect(wrapper.find(GenerateVoiceButton).length).toBe(3);
   });
 
   it('should have the specified initial state', () => {
